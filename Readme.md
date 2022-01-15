@@ -4,9 +4,10 @@ To develop against repo effectively, turn on Debug/Development mode. <br/>
 Run the command: "export FLASK_ENV=development", then use "flask run" in the same directory as wsgi.py. Because our entry point is named "wsgi.py" (this is a special name in flask) we don't need to set the FLASK_APP environment variable. "app.py" works as well. <br/>
 This enables hot reloading and a traceback console in the browser.
 
-Powershell: $env:FLASK_ENV = "development"  <br/>
-Git Bash for windows: export FLASK_ENV=development <br/>
-Linux/etc: export FLASK_ENV=development <br/>
+Windows Powershell: $env:FLASK_ENV = "development"  <br/>
+Windows Git Bash:   export FLASK_ENV=development <br/>
+Windows CMD:        set FLASK_ENV=development <br/>
+Linux/etc:          export FLASK_ENV=development <br/>
 
 Please note that you will need to update requirements.txt with any new requirements for Heroku.<br/>
 
