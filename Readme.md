@@ -24,3 +24,5 @@ Templates rendered with Jinja will escape user values automatically. <br/>
 Note: HTTP response 304 is for "Redirection to a previously cached result". <br/>
 
 Flask quickstart: https://flask.palletsprojects.com/en/2.0.x/quickstart/ <br/>
+
+Material components: https://material-components.github.io/material-components-web-catalog/#/ <br/> 
