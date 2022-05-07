@@ -68,16 +68,7 @@ def listFiles():
     # print(data)
     # print(req.content.decode("utf-8"))
 
-
-    if content_type == 'application/json':
-        # print("TEST!!!")
-        # # content = request.get_json()
-        # # print(content)
-        # url = "https://16io2k9t.directus.app/files"
-        # req = requests.get(url)
-        # print(req)
-        # print(req.content)
-        return {}
+    return {"data": data}
 
 #Pixelsorting
 from PIL import Image
@@ -139,7 +130,7 @@ def sortpixels():
 # TODO: Make a home page
 @app.route('/') # Equivalent to: app.add_url_rule('/', '', index)
 def index():
-    return render_template('pixel.html')
+    return render_template('test.html')
 
 @app.route('/urlsearch')
 def urlsearch():
