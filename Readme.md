@@ -1,3 +1,23 @@
+# Docker
+https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ <br/>
+https://medium.com/swlh/how-to-use-docker-images-containers-and-dockerfiles-39e4e8fc181a <br/>
+
+Build the docker image with the name flask-doppelganger ```docker build --tag flask-doppelganger .```  <br/>
+Create the docker container using the flask-doppelganger image (using port 5000) ```docker create --name flaskd --init -p 5000:5000 flask-doppelganger``` <br/>
+View the created container ```docker ps -a --filter "name=flaskd"``` <br/>
+Start the container (App now accessible on http://localhost:5000/) ```docker start flaskd``` <br/>
+View running containers ```docker ps``` <br/>
+View logs for the running container ```docker logs -f flaskd``` <br/>
+Open interactive bash shell to explore the running container (-it for interactive) ```docker exec -it flaskd bash``` <br/>
+
+Stop container ```docker stop flaskd``` <br/>
+Remove container ```docker rm flaskd``` <br/>
+
+Stop ALL running containers ```docker stop $(docker ps -q)``` <br/>
+
+The run command creates, starts, and attaches a docker container (-d starts the container in detached mode, --rm removes the container from the machine when it is stopped) (App now accessible on http://localhost:5000/)```docker run -d --name flaskd -p 5000:5000 --init --rm flask-doppelganger``` <br/>
+
+View all docker images on your machine ```docker image ls``` <br/>
 
 ## Dev Info:
 
