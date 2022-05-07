@@ -14,7 +14,9 @@ class MyEncoder(json.JSONEncoder):
             return str(obj)
         return super(MyEncoder, self).default(obj)
 
-mongo = os.getenv('MONGODB_URI').replace("\"", "")
+# mongo = os.getenv('MONGODB_URI').replace("\"", "")
+mongo = "DUMMY_MONGODB_URI"
+
 client = MongoClient(mongo)
 db=client.comics
 
@@ -27,6 +29,55 @@ app.json_encoder = MyEncoder
 
 #TODO: Build simple page for pixel allowing user to upload image
 # refactor pixelsorting code to take in arguments from user
+
+@app.route('/test')
+def test():
+    return render_template('test.html')
+
+@app.route('/api/test/listfiles', methods=['POST'])
+def listFiles():
+    content_type = request.headers.get('Content-Type')
+
+    print("working....")
+
+    urlBase = "https://16io2k9t.directus.app/"
+
+    login = {
+        "email": "slothfulgod@gmail.com",
+        "password": "KpztBh[RL[#RbhzAL98WWyis"
+    }
+
+    auth = requests.post(urlBase + "auth/login", json = login)
+    print(auth.text)
+    print("Printed auth.text")
+
+    token = auth.json()['data']['access_token'] # Dear Fuck I love github copilot
+    print(token)
+    print("Printed token")
+
+    url = urlBase + "files"
+    req = requests.get(url, headers = {'Authorization': 'Bearer ' + token})
+    print(req)
+    print(type(req.content))
+    content = req.content.decode("utf-8")#["data"]
+    contentJson = json.loads(content)
+    data = contentJson["data"] 
+    print(type(data))
+    for i in data:
+        print(i["filename_download"])
+    # print(data)
+    # print(req.content.decode("utf-8"))
+
+
+    if content_type == 'application/json':
+        # print("TEST!!!")
+        # # content = request.get_json()
+        # # print(content)
+        # url = "https://16io2k9t.directus.app/files"
+        # req = requests.get(url)
+        # print(req)
+        # print(req.content)
+        return {}
 
 #Pixelsorting
 from PIL import Image

@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block head %} 
+<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}" />
+{% endblock %}
+
+{% block title %} Searcher {% endblock %}
+
+{% block body %}
+
+    <div id="parent" class="container center min-vw-100 min-vh-100 d-flex" style="background-color: #eee;">
+
+      <h1 class="center title">Retrieve all Directus Files</h1>
+      <br>
+      
+      <div class="center">
+        <br>
+      <button id="search_button" class="button center" onclick="runSearch()">Search</button>
+      </div>
+
+
+      <script>
+        let infourl = "{{ url_for('listFiles') }}";
+
+        let requestOptions = {
+          headers: {
+              "Content-Type": "application/json"
+          },
+          method: "POST"
+        }
+
+        function runSearch() {
+          console.log("SHIT")
+          
+          fetch(infourl, requestOptions).then(
+              function(response) {
+                  return response.json();
+          }).then(function(result) {
+              console.log(result);
+          }).catch(function(err) {
+              console.log(err);
+          });
+        }
+
+        // let input = document.getElementById("search_term");
+        // input.addEventListener("keyup", function(event) {
+        //   if (event.keyCode === 13) {
+        //     event.preventDefault();
+        //     document.getElementById("search_button").click();
+        //   }
+        // });
+        </script>
+
+    </div>
+
+{% endblock %}
