@@ -1,3 +1,12 @@
+# Run this code locally
+- Clone repo (git clone https://github.com/team-hunting/ProjectDoppelganger.git)
+- cd into repo (cd ProjectDoppelganger)
+- Create python virtual env (python -m venv venv)
+- activate venv (venv/Scripts/activate)
+- install requirements (pip install -r requirements.txt)
+- Run app (flask run)
+- Good to go! Navigate to http://127.0.0.1:5000/ in a web browser.
+
 # Docker
 https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ <br/>
 https://medium.com/swlh/how-to-use-docker-images-containers-and-dockerfiles-39e4e8fc181a <br/>
