@@ -6,6 +6,7 @@
 - Install requirements: ```pip install -r requirements.txt```
 - Run app: ```flask run```
 - Good to go! Navigate to ```http://127.0.0.1:5000/``` in a web browser.
+- Note: I like to modify the activate script and add the line ```set FLASK_ENV=development``` (this is for windows - other OS specific commands listed below)
 
 # Docker
 https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ <br/>
