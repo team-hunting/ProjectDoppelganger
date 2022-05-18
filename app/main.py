@@ -6,7 +6,9 @@ import requests
 # Edit this to turn on dummy data
 app_test = False
 
-app = Flask(__name__)
+# app = Flask(__name__)
+
+app = Flask(__name__, static_folder='./dist/static', template_folder='./dist')
 
 @app.route('/test')
 def test():
@@ -50,4 +52,4 @@ def listFiles():
 
 @app.route('/') # Equivalent to: app.add_url_rule('/', '', index)
 def index():
-    return render_template('test.html')
+    return render_template('index.html')
