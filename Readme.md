@@ -8,6 +8,14 @@
 - Good to go! Navigate to ```http://127.0.0.1:5000/``` in a web browser.
 - Note: I like to modify the activate script and add the line ```set FLASK_ENV=development``` (this is for windows - other OS specific commands listed below)
 
+# Integrating with Vue
+- Add 'build' parameters to the vite.config.ts file in your Vue app (under the resolve parameter) ```build: {outDir: "./dist", assetsDir: 'static'}```
+- Set Flask to serve out of these folders: ```app = Flask(__name__, static_folder='./dist/static', template_folder='./dist')```
+- Build your vue app with ```npm run build```
+- Copy over the newly created 'dist' folder into your Flask directory - under the 'app' folder
+- Copy anything from your Flask 'templates' folder into 'dist'
+- Copy anything from your Flask 'static' folder into 'dist/static'
+
 # Docker
 https://www.freecodecamp.org/news/how-to-dockerize-a-flask-app/ <br/>
 https://medium.com/swlh/how-to-use-docker-images-containers-and-dockerfiles-39e4e8fc181a <br/>
